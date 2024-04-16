@@ -28,7 +28,7 @@ DELETE http://localhost:3000/users/6
 Content-Type: application/json
 
 ###
-GET http://localhost:3000/api/employee
+GET http://localhost:3000/api/employee?role=ADMINW
 
 ###
 PATCH  http://localhost:3000/employee/2

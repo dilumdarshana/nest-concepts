@@ -1,3 +1,10 @@
+# NestJS Basics
+
+## How to start server
+`
+pnpm run start:dev
+`
+
 ## Prisma Connection
 `
 npx prisma init
