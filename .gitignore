@@ -1,11 +1,14 @@
 # compiled output
 di/dist
 di/node_modules
+di/.DS_Store
 
 messages/node_modules
 messages/build
+messages/.DS_Store
 
 carval/dist
 carval/node_modules
+carval/.DS_Store
 
 .DS_Store
