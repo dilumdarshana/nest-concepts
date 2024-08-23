@@ -1,9 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
+const cookieSession = require('cookie-session');
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.use(cookieSession({
+    keys: ['abcdef'],
+  }));
   // adding validation pipeline. This will intelligently apply when there is
   // validation DTO attached to the service
   app.useGlobalPipes(

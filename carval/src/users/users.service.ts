@@ -19,18 +19,18 @@ export class UsersService {
   }
 
   findOne(id: number) {
-    return this.repo.findOneBy({ id });
+    return !id ? null : this.repo.findOneBy({ id });
   }
 
   find(email: string) {
-    return this.repo.findOne({ where: { email }});
+    return this.repo.find({ where: { email }});
   }
 
   async update(id: number, attr: Partial<User>) {
     const user = await this.findOne(id);
   
     if (!user) {
-      throw new NotFoundException('User not found');
+      throw new NotFoundException('User not found!!!');
     }
   
     const newUser = { ...user, ...attr };
