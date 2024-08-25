@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
 
-describe('AppController (e2e)', () => {
+describe('AuthController (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
@@ -15,10 +15,18 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('handles a signup request', () => {
+    const email = 'd.xyz1@test.com';
     return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello, this is the NestJS server!');
+      .post('/auth/signup')
+      .send({
+        email: email,
+        password: '1qaz!QAZ'
+      })
+      .expect(201)
+      .then(((res) => {
+        expect(res.body.email).toEqual(email);
+        expect(res.body.id).toBeDefined();
+      }))
   });
 });
