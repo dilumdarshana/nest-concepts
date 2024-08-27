@@ -2,7 +2,7 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "email": "d.darshana@azto.com",
+  "email": "d.darshana@test.com",
   "password": "1qaz!QAZ"
 }
 
@@ -11,12 +11,12 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-  "email": "d.darshana@azto.com",
+  "email": "d.darshana@eleos.com",
   "password": "1qaz!QAZ"
 }
 
 ###
-GET http://localhost:3000/auth/2
+GET http://localhost:3000/auth/3
 
 ###
 GET http://localhost:3000/auth?email=d.darshana@newpath.com
@@ -31,3 +31,33 @@ Content-Type: application/json
 {
   "email": "d.darshana@newpath.com"
 }
+
+###
+GET http://localhost:3000/auth/whoami
+
+###
+POST http://localhost:3000/auth/signout
+Content-Type: application/json
+
+###
+POST http://localhost:3000/reports
+Content-Type: application/json
+
+{
+  "make": "Toyota",
+  "model": "Vitz",
+  "year": 2014,
+  "mileage": 100,
+  "price": 14000
+}
+
+###
+PATCH http://localhost:3000/reports/1
+Content-Type: application/json
+
+{
+  "approved": true
+}
+
+###
+GET http://localhost:3000/reports?make=Toyota&model=Vitz&year=2014&mileage=100
