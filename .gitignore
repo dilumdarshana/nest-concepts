@@ -10,8 +10,12 @@ messages/.DS_Store
 carval/dist
 carval/node_modules
 carval/.DS_Store
+carval/db.sqlite
+carval/test.sqlite
 
 .DS_Store
 
 .env.development
 .env.test
+
+*-migrations.ts
