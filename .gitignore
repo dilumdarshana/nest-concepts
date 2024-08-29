@@ -12,3 +12,6 @@ carval/node_modules
 carval/.DS_Store
 
 .DS_Store
+
+.env.development
+.env.test
