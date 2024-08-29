@@ -3,7 +3,8 @@ const config = {
   migrations: ['migrations/*js'],
   cli: {
     migrationsDir: 'migrations'
-  }
+  },
+  autoLoadEntities: true,
 }
 
 switch (process.env.NODE_ENV) {

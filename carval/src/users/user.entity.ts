@@ -14,7 +14,7 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column()
@@ -22,6 +22,9 @@ export class User {
 
   @Column({ default: true })
   admin: boolean
+
+  @Column()
+  age: number;
 
   @OneToMany(() => Report, (report) => report.user)
   reports: Report[];

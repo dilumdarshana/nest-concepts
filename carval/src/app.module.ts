@@ -10,7 +10,8 @@ import { ReportsModule } from './reports/reports.module';
 // import { User } from './users/user.entity';
 // import { Report } from './reports/report.entity';
 const cookieSession = require('cookie-session');
-const dbConfig = require('../ormconfig');
+// const dbConfig = require('../ormconfig');
+import { dataSourceOptions } from '../db/data-source';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ const dbConfig = require('../ormconfig');
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
     // this will look for the configurations from eigher ormconfig or environment variables
-    TypeOrmModule.forRoot(dbConfig),
+    TypeOrmModule.forRoot(dataSourceOptions),
     // following code frag is usless when it comes to TyprOrm CLI
     // TypeOrmModule.forRootAsync({
     //   inject: [ConfigService],
