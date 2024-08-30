@@ -11,7 +11,7 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-  "email": "d.darshana@eleos.com",
+  "email": "d.darshana@test.com",
   "password": "1qaz!QAZ"
 }
 

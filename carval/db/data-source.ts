@@ -1,11 +1,9 @@
-import { synchronize } from 'ormconfig';
 import { DataSourceOptions, DataSource } from 'typeorm';
 
 export const dataSourceOptions: DataSourceOptions = {
   type: 'sqlite',
   database: 'db.sqlite',
   entities: ['**/*.entity.ts'],
-  // migrations: ['migrations/*.ts'],
   synchronize: false,
   migrationsTableName: 'migrations',
 };
@@ -24,7 +22,8 @@ switch (process.env.NODE_ENV) {
       type: 'sqlite',
       database: 'test.sqlite',
       entities: ['*/**/*.entity.ts'],
-      synchronize: true
+      synchronize: true,
+      migrationsRun: true,
     });
     break;
   case 'production':
