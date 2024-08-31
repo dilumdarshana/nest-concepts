@@ -27,6 +27,13 @@ switch (process.env.NODE_ENV) {
     });
     break;
   case 'production':
+    Object.assign(dataSourceOptions, {
+      type: 'postgres',
+      url: process.env.DATABASE_URL,
+      entities: ['*/**/*.entity.js'],
+      synchronize: false,
+      migrationsRun: true,
+    });
     break;
   default:
     throw new Error('Invalid NODE_ENV');

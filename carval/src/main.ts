@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
-const cookieSession = require('cookie-session');
+// import { ValidationPipe } from '@nestjs/common';
+// const cookieSession = require('cookie-session');
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -20,7 +20,7 @@ async function bootstrap() {
   //   }),
   // );
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 
 bootstrap();
