@@ -13,4 +13,17 @@
 - e2e testing
 - 
 
+## authorization
+- Use authentication token for authorization
+- Refresh token for authorization
+- Prisma
+- JWT
+- MongoDB
+- Docker
+
+## microservices
+- Nest mono respo
+- NATS
+
+
 [Blog Post](https://dilumdar.blogspot.com/2024/04/nestjs-basic-concepts.html)
