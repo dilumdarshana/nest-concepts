@@ -1,8 +1,9 @@
 GET http://localhost:3000/user/2
 
 ###
-POST http://localhost:3000/signin
+POST http://localhost:3000/auth/signin
 Content-Type: application/json
+Authorization: 'Bearer'
 
 {
   "username": "alex2@example.com",
