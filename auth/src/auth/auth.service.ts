@@ -1,16 +1,19 @@
-import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { Injectable, NotFoundException, Inject, UnauthorizedException } from '@nestjs/common';
 import { verify } from 'argon2';
 import { JwtService } from '@nestjs/jwt';
+import { ConfigType } from '@nestjs/config';
 import { UserService } from '../user/user.service';
 import { JwtPayload } from './types/jwt_payload';
 import { TokenResponse } from './types/token_respone';
 import { AuthResponse } from './types/common';
+import refreshConfig from './config/jwt.refresh.config';
 
 @Injectable()
 export class AuthService {
   constructor(
     private userService: UserService,
     private jwtService: JwtService,
+    @Inject(refreshConfig.KEY) private refreshTokenConfig: ConfigType<typeof refreshConfig>,
   ) {}
 
   async signin({ username, password }) {
@@ -41,13 +44,14 @@ export class AuthService {
       role: user.role_id,
     };
 
-    const [accessToken] = await Promise.all([
+    const [accessToken, refreshToken] = await Promise.all([
       this.jwtService.signAsync(payload),
+      this.jwtService.signAsync(payload, this.refreshTokenConfig),
     ]);
 
     return {
       accessToken,
-      refreshToken: null,
+      refreshToken,
     };
   }
 
@@ -61,6 +65,32 @@ export class AuthService {
       name: user.name,
       email: user.email,
       role: user.role_id,
+    }
+  }
+
+  async validateRefreshToken(userId: number) {
+    const user = await this.userService.findById(userId);
+
+    if (!user) throw new UnauthorizedException('Invalid token');
+
+    return {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role_id,
+    }
+  }
+
+  async refreshToken(user: AuthResponse) {
+    const { accessToken, refreshToken } = await this.generateTokens(user);
+
+    return {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      accessToken,
+      refreshToken,
     }
   }
 }

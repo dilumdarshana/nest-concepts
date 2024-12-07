@@ -13,3 +13,11 @@ Authorization: 'Bearer'
 ###
 GET http://localhost:3000/auth/whoami
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsImVtYWlsIjoiYWxleDJAZXhhbXBsZS5jb20iLCJyb2xlIjoxLCJpYXQiOjE3MzM1NzU3NzUsImV4cCI6MTczMzU3NjM3NX0.J8lR29huoIQsoq3BnGq_cJIkyY56RE0lYxkdeo20k0Y
+
+###
+POST http://localhost:3000/auth/refresh-token
+Content-Type: application/json
+
+{
+  "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsImVtYWlsIjoiYWxleDJAZXhhbXBsZS5jb20iLCJyb2xlIjoxLCJpYXQiOjE3MzM1Nzc5MTQsImV4cCI6MTczNjE2OTkxNH0.ZKuFG3EAjJ10YrB_Ff966x4toZLmY0vz0a-1m7OsTd4"
+}
