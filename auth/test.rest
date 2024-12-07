@@ -9,3 +9,7 @@ Authorization: 'Bearer'
   "username": "alex2@example.com",
   "password": "1qaz!QAZ"
 }
+
+###
+GET http://localhost:3000/auth/whoami
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsImVtYWlsIjoiYWxleDJAZXhhbXBsZS5jb20iLCJyb2xlIjoxLCJpYXQiOjE3MzM1NzU3NzUsImV4cCI6MTczMzU3NjM3NX0.J8lR29huoIQsoq3BnGq_cJIkyY56RE0lYxkdeo20k0Y
