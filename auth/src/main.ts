@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -15,7 +16,12 @@ async function bootstrap() {
       },
     ),
   );
-  await app.listen(process.env.PORT ?? 3000);
+
+  // get application port from .env. process.env.APP_PORT doesn't work here
+  const configService = app.get(ConfigService);
+  const port = configService.get<string>('APP_PORT');
+
+  await app.listen(port);
 }
 
 bootstrap();

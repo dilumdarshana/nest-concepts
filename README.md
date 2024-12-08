@@ -11,14 +11,16 @@
 - TypeORM
 - Unit testing
 - e2e testing
-- 
 
 ## authorization
 - Use authentication token for authorization
 - Refresh token for authorization
 - Prisma
+- Prisma studio (npx prisma studio)
 - JWT
-- MongoDB
+- Passport
+- Postgresql
+- Nest Config and .env validation
 - Docker
 
 ## microservices
