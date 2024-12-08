@@ -19,7 +19,7 @@ export class UserService {
         password: hasedPassword,
         role_id: 1,
       }
-    })
+    });
   }
 
   findAll() {

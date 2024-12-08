@@ -22,7 +22,7 @@ export class AuthController {
     return this.authService.signin(body);
   }
 
-  @Post('singup')
+  @Post('signup')
   signup(@Body() body: SignupPayloadDto) {
     return this.authService.signup(body);
   }
