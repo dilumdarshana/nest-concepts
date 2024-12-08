@@ -1,4 +1,11 @@
-GET http://localhost:3000/user/2
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "username": "alex2@example.com",
+  "password": "1qaz!QAZ",
+  "name": "Alex"
+}
 
 ###
 POST http://localhost:3000/auth/signin

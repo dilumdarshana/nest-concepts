@@ -1,6 +1,7 @@
 import { Controller, Post, Get, Body, Request, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { SigninPayloadDto } from './dto/signin_payload.dto';
+import { SignupPayloadDto } from './dto/signup_payload.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { RefreshAuthGuard } from './guards/jwt-refresh-auth.guard';
 // import { LocalAuthGuard } from '../auth/guards/local-auth.guard';
@@ -19,6 +20,11 @@ export class AuthController {
   // @UseGuards(LocalAuthGuard)
   signin(@Body() body: SigninPayloadDto){
     return this.authService.signin(body);
+  }
+
+  @Post('singup')
+  signup(@Body() body: SignupPayloadDto) {
+    return this.authService.signup(body);
   }
 
   /**

@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, Inject, UnauthorizedException } from '@nestjs/common';
+import { Injectable, NotFoundException, Inject, UnauthorizedException, ConflictException } from '@nestjs/common';
 import { verify } from 'argon2';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigType } from '@nestjs/config';
@@ -7,6 +7,7 @@ import { JwtPayload } from './types/jwt_payload';
 import { TokenResponse } from './types/token_respone';
 import { AuthResponse } from './types/common';
 import refreshConfig from './config/jwt.refresh.config';
+import { SignupPayloadDto } from './dto/signup_payload.dto';
 
 @Injectable()
 export class AuthService {
@@ -34,6 +35,19 @@ export class AuthService {
       role: user.role_id,
       accessToken,
       refreshToken,
+    }
+  }
+
+  async signup(user: SignupPayloadDto) {
+    const { username, password, name } = user;
+    const userDb = await this.userService.findByEmail(username);
+
+    if (userDb) throw new ConflictException('User already exists!');
+
+    await this.userService.create(user);
+
+    return {
+      message: 'User created successfully',
     }
   }
 
