@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { hash } from 'argon2';
 import { PrismaService } from '../prisma/prisma.service';
 import { SignupPayloadDto } from '../auth/dto/signup_payload.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { User } from './types/user';
 
 @Injectable()
 export class UserService {
@@ -17,12 +17,11 @@ export class UserService {
       data: {
         ...user,
         password: hasedPassword,
-        // role_id: 1,
       }
     });
   }
 
-  findById(id: number) {
+  findById(id: number): Promise<User> {
     return this.prismaService.user.findUnique({ 
       where: {
         id,
@@ -33,7 +32,7 @@ export class UserService {
     });
   }
 
-  findByEmail(email: string) {
+  findByEmail(email: string): Promise<User> {
     return this.prismaService.user.findUnique({
       where: {
         email,

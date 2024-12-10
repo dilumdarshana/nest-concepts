@@ -37,3 +37,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsI
 {
   "name": "user"
 }
+
+###
+GET http://localhost:3000/user/1
+

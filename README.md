@@ -15,12 +15,14 @@
 ## authorization
 - Use authentication token for authorization
 - Refresh token for authorization
+- Role based access control
 - Prisma
 - Prisma studio (npx prisma studio)
 - JWT
 - Passport
 - Postgresql
 - Nest Config and .env validation
+- Unit testing
 - Docker
 
 ## microservices
