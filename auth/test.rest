@@ -2,7 +2,7 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "email": "alex2@example.com",
+  "email": "alex@example.com",
   "password": "1qaz!QAZ",
   "name": "Alex"
 }
@@ -13,7 +13,7 @@ Content-Type: application/json
 Authorization: 'Bearer'
 
 {
-  "username": "alex2@example.com",
+  "username": "alex@example.com",
   "password": "1qaz!QAZ"
 }
 
@@ -27,4 +27,13 @@ Content-Type: application/json
 
 {
   "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsImVtYWlsIjoiYWxleDJAZXhhbXBsZS5jb20iLCJyb2xlIjoxLCJpYXQiOjE3MzM1Nzc5MTQsImV4cCI6MTczNjE2OTkxNH0.ZKuFG3EAjJ10YrB_Ff966x4toZLmY0vz0a-1m7OsTd4"
+}
+
+###
+POST http://localhost:3000/admin/role
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiYWxleEBleGFtcGxlLmNvbSIsInJvbGVfaWQiOjIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzMzNzkzNjA3LCJleHAiOjE3MzM3OTcyMDd9.vaXKa1h6kv1pFl0rSGpdYdWoGyPmOkpmZHFspfdOpSQ
+
+{
+  "name": "user"
 }

@@ -8,6 +8,7 @@ import { TokenResponse } from './types/token_respone';
 import { AuthResponse } from './types/common';
 import refreshConfig from './config/jwt.refresh.config';
 import { SignupPayloadDto } from './dto/signup_payload.dto';
+import { ROLES } from '../constants/app.constants';
 
 @Injectable()
 export class AuthService {
@@ -44,7 +45,10 @@ export class AuthService {
 
     if (userDb) throw new ConflictException('User already exists!');
 
-    await this.userService.create(user);
+    // find the user role id
+    const { id: roleId } = await this.userService.findRoleIdByName(ROLES.USER);
+
+    await this.userService.create({ ...user, role_id: roleId });
 
     return {
       message: 'User created successfully',
@@ -55,7 +59,8 @@ export class AuthService {
     const payload: JwtPayload = { 
       sub: user.id,
       email: user.email,
-      role: user.role_id,
+      role_id: user.role_id,
+      role: user.Role.name,
     };
 
     const [accessToken, refreshToken] = await Promise.all([
@@ -78,7 +83,8 @@ export class AuthService {
       id: user.id,
       name: user.name,
       email: user.email,
-      role: user.role_id,
+      role_id: user.role_id,
+      role: user.Role.name,
     }
   }
 
@@ -91,7 +97,8 @@ export class AuthService {
       id: user.id,
       name: user.name,
       email: user.email,
-      role: user.role_id,
+      role_id: user.role_id,
+      role: user.Role.name,
     }
   }
 

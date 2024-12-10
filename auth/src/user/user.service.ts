@@ -17,19 +17,18 @@ export class UserService {
       data: {
         ...user,
         password: hasedPassword,
-        role_id: 1,
+        // role_id: 1,
       }
     });
-  }
-
-  findAll() {
-    return `This action returns all userdd`;
   }
 
   findById(id: number) {
     return this.prismaService.user.findUnique({ 
       where: {
         id,
+      },
+      include: {
+        Role: true,
       },
     });
   }
@@ -39,14 +38,17 @@ export class UserService {
       where: {
         email,
       },
+      include: {
+        Role: true,
+      },
     });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  findRoleIdByName(name: string) {
+    return this.prismaService.role.findUnique({
+      where: {
+        name
+      }
+    });
   }
 }
