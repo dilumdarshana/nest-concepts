@@ -22,7 +22,8 @@
 - Passport
 - Postgresql
 - Nest Config and .env validation
-- Unit testing
+- Cors
+- Unit testing (jest)
 - Docker
 
 ## microservices
