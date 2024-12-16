@@ -42,7 +42,23 @@ nest start books --watch
 nest start users --watch
 ```
 
-## sharing Dtos in between gateway and other services
+## sharing DTOs in between gateway and other services - Nest Library
+```bash
+# generate a nest library from root prefix with @app
+nest generate library contracts
 
+# delete everything inside libs/contracts/src
+rm -rf libs/contracts/src/*
+
+# create a books folder
+mkdir libs/contracts/src/books
+
+# copy existing DTOs to the contract library
+cp apps/books/src/books/dto/* libs/contracts/src/books
+
+# now import DTOs from contract wherever needed. eg. from books service
+import { CreateBookDto, UpdateBookDto, BookDto } from '@app/contracts/books';
+```
 
 ## define each service ports in a common location
+
