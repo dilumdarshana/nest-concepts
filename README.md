@@ -12,7 +12,7 @@
 - Unit testing
 - e2e testing
 
-## authorization
+## authorization (auth)
 - Use authentication token for authorization
 - Refresh token for authorization
 - Role based access control
