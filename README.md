@@ -12,7 +12,7 @@
 - Unit testing
 - e2e testing
 
-## authorization (auth)
+## auth - authorization
 - Use authentication token for authorization
 - Refresh token for authorization
 - Role based access control
@@ -30,5 +30,8 @@
 - Nest mono respo
 - NATS
 
+## k6 - Load|Stress|Spike|Soak testing
+- k6
+- Docker
 
 [Blog Post](https://dilumdar.blogspot.com/2024/04/nestjs-basic-concepts.html)
