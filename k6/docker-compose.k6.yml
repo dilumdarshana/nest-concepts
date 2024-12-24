@@ -1,4 +1,4 @@
-version: '3.8'
+name: my-grafana-k6
 
 services:
   k6:
@@ -8,5 +8,5 @@ services:
     network_mode: "host"  # For Linux
     # network_mode: "bridge"  # For Windows/Mac
     volumes:
-      - ./tests/k6:/scripts
+      - ./test/k6:/scripts
       

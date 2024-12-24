@@ -19,7 +19,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "k6:build": "docker compose -f docker-compose.k6.yml build",
-    "k6:test": "docker compose -f docker-compose.k6.yml run k6 run /scripts/performance.ts"
+    "k6:test": "docker compose -f docker-compose.k6.yml run k6 run /scripts/load-test.spec.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
