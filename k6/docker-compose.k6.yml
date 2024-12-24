@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.k6
+    container_name: my-grafana-k6
     network_mode: "host"  # For Linux
     # network_mode: "bridge"  # For Windows/Mac
     volumes:
