@@ -7,7 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [PrometheusModule.register({ path: '/matrices' })],
+  imports: [PrometheusModule.register({ path: '/metrics' })],
   controllers: [AppController],
   providers: [
     AppService,
