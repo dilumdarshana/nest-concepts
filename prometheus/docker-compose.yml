@@ -1,17 +1,21 @@
-version: '3.8'
+name: my-prometheus-grafana
 
 services:
   prometheus:
     image: prom/prometheus:latest
+    container_name: my-prometheus
     ports:
       - "9090:9090"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
+    networks:
+      - monitoring
 
   grafana:
     image: grafana/grafana:latest
+    container_name: my-grafana
     ports:
       - "3030:3000"
     environment:
@@ -19,6 +23,8 @@ services:
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
     volumes:
       - grafana-storage:/var/lib/grafana
+    networks:
+      - monitoring
 
 volumes:
   grafana-storage:
