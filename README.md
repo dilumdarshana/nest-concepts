@@ -34,4 +34,12 @@
 - k6
 - Docker
 
+## prometheus - monitoring
+- Prometheus
+- Grafana
+- Docker
+
+## deployment
+- TBD
+
 [Blog Post](https://dilumdar.blogspot.com/2024/04/nestjs-basic-concepts.html)
