@@ -58,7 +58,8 @@ import { dataSourceOptions } from '../db/data-source';
 })
 export class AppModule {
   constructor(private configService: ConfigService) {}
-  // setup global middleware
+  // setup global middleware. This middleware take care of 
+  // attache user from the cookie
   configure(consumer: MiddlewareConsumer) {
     consumer
      .apply(cookieSession({

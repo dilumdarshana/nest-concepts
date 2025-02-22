@@ -15,7 +15,6 @@ carval/test.sqlite
 
 .DS_Store
 
-.env.development
 .env.test
 
 *-migrations.ts

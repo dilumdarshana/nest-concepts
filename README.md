@@ -8,6 +8,11 @@
 - DI container for use instance of classes
 
 ## carval features
+- Cookie based authentication
+- Interceptors
+- Guards
+- Middlewares
+- Decorators
 - TypeORM
 - Unit testing
 - e2e testing
