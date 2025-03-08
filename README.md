@@ -3,6 +3,7 @@
 ## di features
 - Share services between different modules
 - How to use different services from controllers
+- Prevent circular dependency issue using forwardRef
 
 ## messages features
 - DI container for use instance of classes
