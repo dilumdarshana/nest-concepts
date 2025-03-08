@@ -1,0 +1,11 @@
+###
+POST http://localhost:3000/computer
+Content-Type: application/json
+
+{
+  "ip": "127.0.0.3",
+  "name": "Router"
+}
+
+###
+GET http://localhost:3000/network
