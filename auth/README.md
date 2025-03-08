@@ -20,13 +20,13 @@ nest g module user
 ## Adding Prisma
 ```bash
 # Add Prisma and initialize
-npm i -D prisma
-npx prisma init # This will create prisma folder and .env file in the current working directory
+pnpm i -D prisma
+pnpx prisma init # This will create prisma folder and .env file in the current working directory
 ```
 
 ## Adding Prisma client
 ```bash
-npm install @prisma/client
+pnpm install @prisma/client
 ```
 
 ## Adding JWT
