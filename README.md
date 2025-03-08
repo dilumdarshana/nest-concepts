@@ -45,6 +45,10 @@
 - Grafana
 - Docker
 
+## event_emitter - Event Driven pattern
+- Avoid circular dependency
+- Async Nest event emitter
+
 ## deployment
 - TBD
 
