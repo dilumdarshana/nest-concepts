@@ -1,0 +1,10 @@
+###
+POST http://localhost:3000
+Content-Type: application/json
+
+{
+  "name": "Apache",
+  "age": 12,
+  "email": "john.doe@example.com",
+  "url": "http://localhost:3000"
+}

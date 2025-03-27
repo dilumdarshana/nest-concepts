@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Account, AccountsService } from '../accounts/accounts.service';
 import { OnEvent } from '@nestjs/event-emitter';
+import { Account, AccountsService } from '../accounts/accounts.service';
 import { GenerateSnapshotsEvent } from './generate-snapshot.event';
 
 export interface Snapshot {

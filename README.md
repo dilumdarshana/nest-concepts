@@ -49,6 +49,14 @@
 - Avoid circular dependency
 - Async Nest event emitter
 
+## execution_order - Component execution order
+- Middleware
+- Guards 
+- Interceptors 
+- Pipes 
+- Controller 
+- Service
+
 ## deployment
 - TBD
 
